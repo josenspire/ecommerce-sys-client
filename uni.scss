@@ -43,6 +43,10 @@ $uni-font-size-sm:24upx;
 $uni-font-size-base:28upx;
 $uni-font-size-lg:32upx;
 
+$font-sm: 24upx;
+$font-base: 28upx;
+$font-lg: 32upx;
+
 /* 图片尺寸 */
 $uni-img-size-sm:40upx;
 $uni-img-size-base:52upx;
@@ -59,10 +63,14 @@ $uni-spacing-row-sm: 10px;
 $uni-spacing-row-base: 20upx;
 $uni-spacing-row-lg: 30upx;
 
+$page-row-spacing: 30upx;
+
 /* 垂直间距 */
 $uni-spacing-col-sm: 8upx;
 $uni-spacing-col-base: 16upx;
 $uni-spacing-col-lg: 24upx;
+
+$page-color-base: #f8f8f8;
 
 /* 透明度 */
 $uni-opacity-disabled: 0.3; // 组件禁用态的透明度
@@ -79,3 +87,4 @@ $base-color: #fa436a;
 
 $font-color-base: #606266;
 $font-color-dark: #303133;
+$font-color-light: #909399;

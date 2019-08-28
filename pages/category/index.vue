@@ -1,16 +1,16 @@
 <template>
 	<view class="category">
 		<scroll-view scroll-y class="left-aside">
-			<view v-for="item in firstCategoryList" :key="item.id" class="f-item b-b" :class="{active: item.id === currentId}"
+			<view v-for="item in firstCategoryList" :key="item.id" class="left-item" :class="{active: item.id === currentId}"
 			 @click="handleTabTap(item)">
 				{{item.name}}
 			</view>
 		</scroll-view>
 
-		<scroll-view scroll-with-animation scroll-y class="right-aside" @scroll="asideScroll" :scroll-top="tabScrollTop">
-			<view v-for="item in secondCategoryList" :key="item.id" class="s-list" :id="'main-'+item.id">
-				<text class="s-item">{{item.name}}</text>
-				<view class="t-list">
+		<scroll-view scroll-with-animation scroll-y class="right-aside" @scroll="handleAsideScroll" :scroll-top="tabScrollTop">
+			<view v-for="item in secondCategoryList" :key="item.id" :id="'main-'+item.id">
+				<text class="sub-title">{{item.name}}</text>
+				<view class="category-list">
 					<view @click="navToList(item.id, titem.id)" v-if="titem.pid === item.id" class="t-item" v-for="titem in thirdCategoryList"
 					 :key="titem.id">
 						<image :src="titem.picture"></image>
@@ -28,6 +28,7 @@
 		data() {
 			return {
 				sizeCalcState: false,
+				triggeredByTab: false,
 				tabScrollTop: 0,
 				currentId: 1,
 				firstCategoryList: [],
@@ -46,6 +47,7 @@
 				this.thirdCategoryList = categoriesDataSet.level3;
 			},
 			handleTabTap(item) {
+				this.triggeredByTab = true;
 				if (!this.sizeCalcState) {
 					this.calcSize();
 				}
@@ -53,17 +55,20 @@
 				const index = this.secondCategoryList.findIndex(e => {
 					return e.pid === item.id
 				})
-				console.log(this.currentId, index)
 				this.tabScrollTop = this.secondCategoryList[index].top;
 			},
 			// 右侧栏滚动
-			asideScroll(e) {
+			handleAsideScroll(e) {
+				if (this.triggeredByTab) {
+					this.triggeredByTab = false;
+					return;
+				}
 				if (!this.sizeCalcState) {
 					this.calcSize();
 				}
-				let scrollTop = e.detail.scrollTop;
-				let tabs = this.secondCategoryList.filter(item => item.top <= scrollTop).reverse();
-				if (tabs.length > 0) {
+				const scrollTop = e.detail.scrollTop;
+				const tabs = this.secondCategoryList.filter(item => item.top <= scrollTop).reverse();
+				if (tabs.length > 1) {
 					this.currentId = tabs[0].pid;
 				}
 			},
@@ -71,10 +76,8 @@
 			calcSize() {
 				let height = 0;
 				this.secondCategoryList.forEach(item => {
-					let view = uni.createSelectorQuery().select("#main-" + item.id);
-					view.fields({
-						size: true
-					}, data => {
+					const view = uni.createSelectorQuery().select("#main-" + item.id);
+					view.fields({size: true}, data => {
 						item.top = height;
 						height += data.height;
 						item.bottom = height;
@@ -99,16 +102,16 @@
 	.category {
 		display: flex;
 		height: 100%;
-		background-color: #f8f8f8;
+		background-color: #FFFFFF;
 
 		.left-aside {
 			flex-shrink: 0;
-			width: 200upx;
+			width: 180upx;
 			height: 100%;
-			background-color: #fff;
+			background-color: #F8F8F8;
 		}
 
-		.f-item {
+		.left-item {
 			display: flex;
 			align-items: center;
 			justify-content: center;
@@ -120,7 +123,7 @@
 
 			&.active {
 				color: $base-color;
-				background: #f8f8f8;
+				background: #FFFFFF;
 
 				&:before {
 					content: '';
@@ -143,16 +146,17 @@
 			padding-left: 20upx;
 		}
 
-		.s-item {
+		.sub-title {
 			display: flex;
 			align-items: center;
 			height: 70upx;
 			padding-top: 8upx;
 			font-size: 28upx;
+			font-weight: bold;
 			color: $font-color-dark;
 		}
 
-		.t-list {
+		.category-list {
 			display: flex;
 			flex-wrap: wrap;
 			width: 100%;

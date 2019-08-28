@@ -105,12 +105,171 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
-//
-//
-//
-var _default =
-{};exports.default = _default;
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var ListCell = function ListCell() {return __webpack_require__.e(/*! import() | components/mix-list-cell */ "components/mix-list-cell").then(__webpack_require__.bind(null, /*! ../../components/mix-list-cell.vue */ 53));};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var startY = 0,
+moveY = 0,
+pageAtTop = true;var _default =
+
+{
+  components: {
+    ListCell: ListCell },
+
+  data: function data() {
+    return {
+      userInfo: {
+        avatar: '',
+        nickname: '' },
+
+
+      coverTransform: 'translateY(0px)',
+      coverTransition: '0s',
+      moving: false };
+
+  },
+  onLoad: function onLoad() {
+
+  },
+  methods: {
+    /**
+              *  会员卡下拉和回弹
+              *  1.关闭bounce避免ios端下拉冲突
+              *  2.由于touchmove事件的缺陷（以前做小程序就遇到，比如20跳到40，h5反而好很多），下拉的时候会有掉帧的感觉
+              *    transition设置0.1秒延迟，让css来过渡这段空窗期
+              *  3.回弹效果可修改曲线值来调整效果，推荐一个好用的bezier生成工具 http://cubic-bezier.com/
+              */
+    coverTouchstart: function coverTouchstart(e) {
+      if (pageAtTop === false) {
+        return;
+      }
+      this.coverTransition = 'transform .1s linear';
+      startY = e.touches[0].clientY;
+    },
+    coverTouchmove: function coverTouchmove(e) {
+      moveY = e.touches[0].clientY;
+      var moveDistance = moveY - startY;
+      if (moveDistance < 0) {
+        this.moving = false;
+        return;
+      }
+      this.moving = true;
+      if (moveDistance >= 80 && moveDistance < 100) {
+        moveDistance = 80;
+      }
+
+      if (moveDistance > 0 && moveDistance <= 80) {
+        this.coverTransform = "translateY(".concat(moveDistance, "px)");
+      }
+    },
+    coverTouchend: function coverTouchend() {
+      if (this.moving === false) {
+        return;
+      }
+      this.moving = false;
+      this.coverTransition = 'transform 0.3s cubic-bezier(.21,1.93,.53,.64)';
+      this.coverTransform = 'translateY(0px)';
+    } } };exports.default = _default;
 
 /***/ }),
 

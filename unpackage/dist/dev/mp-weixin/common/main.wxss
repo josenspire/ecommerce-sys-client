@@ -52,4 +52,16 @@ video {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
+.icon-shouye:before {
+  content: "\E626";
+}
+.icon-daifukuan:before {
+  content: "\E68F";
+}
+.icon-yishouhuo:before {
+  content: "\E71A";
+}
+.icon-shouhoutuikuan:before {
+  content: "\E631";
+}
 

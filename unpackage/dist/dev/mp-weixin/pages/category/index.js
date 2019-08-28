@@ -135,6 +135,7 @@ var _index = _interopRequireDefault(__webpack_require__(/*! ../../api/index.js *
   data: function data() {
     return {
       sizeCalcState: false,
+      triggeredByTab: false,
       tabScrollTop: 0,
       currentId: 1,
       firstCategoryList: [],
@@ -153,6 +154,7 @@ var _index = _interopRequireDefault(__webpack_require__(/*! ../../api/index.js *
                 this.thirdCategoryList = categoriesDataSet.level3;case 6:case "end":return _context.stop();}}}, _callee, this);}));function loadCategoryData() {return _loadCategoryData.apply(this, arguments);}return loadCategoryData;}(),
 
     handleTabTap: function handleTabTap(item) {
+      this.triggeredByTab = true;
       if (!this.sizeCalcState) {
         this.calcSize();
       }
@@ -160,17 +162,20 @@ var _index = _interopRequireDefault(__webpack_require__(/*! ../../api/index.js *
       var index = this.secondCategoryList.findIndex(function (e) {
         return e.pid === item.id;
       });
-      console.log(this.currentId, index);
       this.tabScrollTop = this.secondCategoryList[index].top;
     },
     // 右侧栏滚动
-    asideScroll: function asideScroll(e) {
+    handleAsideScroll: function handleAsideScroll(e) {
+      if (this.triggeredByTab) {
+        this.triggeredByTab = false;
+        return;
+      }
       if (!this.sizeCalcState) {
         this.calcSize();
       }
       var scrollTop = e.detail.scrollTop;
       var tabs = this.secondCategoryList.filter(function (item) {return item.top <= scrollTop;}).reverse();
-      if (tabs.length > 0) {
+      if (tabs.length > 1) {
         this.currentId = tabs[0].pid;
       }
     },
@@ -179,9 +184,7 @@ var _index = _interopRequireDefault(__webpack_require__(/*! ../../api/index.js *
       var height = 0;
       this.secondCategoryList.forEach(function (item) {
         var view = uni.createSelectorQuery().select("#main-" + item.id);
-        view.fields({
-          size: true },
-        function (data) {
+        view.fields({ size: true }, function (data) {
           item.top = height;
           height += data.height;
           item.bottom = height;

@@ -13,31 +13,5 @@
 </script>
 
 <style lang="scss">
-	/*每个页面公共css */
-	view,
-	scroll-view,
-	swiper,
-	swiper-item,
-	cover-view,
-	cover-image,
-	icon,
-	text,
-	rich-text,
-	progress,
-	button,
-	checkbox,
-	form,
-	input,
-	label,
-	radio,
-	slider,
-	switch,
-	textarea,
-	navigator,
-	audio,
-	camera,
-	image,
-	video {
-		box-sizing: border-box;
-	}
+	@import "/asserts/styles/common.scss";
 </style>
