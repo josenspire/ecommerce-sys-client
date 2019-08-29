@@ -50,19 +50,19 @@
 			<!-- 订单 -->
 			<view class="order-section">
 				<view class="order-item" @click="navTo('/pages/order/order?state=0')" hover-class="common-hover" :hover-stay-time="50">
-					<text class="cs-icon icon-shouye"></text>
+					<text class="iconfont cs-icon icon-shouye"></text>
 					<text>全部订单</text>
 				</view>
 				<view class="order-item" @click="navTo('/pages/order/order?state=1')" hover-class="common-hover" :hover-stay-time="50">
-					<text class="cs-icon icon-daifukuan"></text>
+					<text class="iconfont cs-icon icon-daifukuan"></text>
 					<text>待付款</text>
 				</view>
 				<view class="order-item" @click="navTo('/pages/order/order?state=2')" hover-class="common-hover" :hover-stay-time="50">
-					<text class="cs-icon icon-yishouhuo"></text>
+					<text class="iconfont cs-icon icon-yishouhuo"></text>
 					<text>待收货</text>
 				</view>
 				<view class="order-item" @click="navTo('/pages/order/order?state=4')" hover-class="common-hover" :hover-stay-time="50">
-					<text class="cs-icon icon-shouhoutuikuan"></text>
+					<text class="iconfont cs-icon icon-shouhoutuikuan"></text>
 					<text>退款/售后</text>
 				</view>
 			</view>
@@ -70,7 +70,7 @@
 			<!-- 浏览历史 -->
 			<view class="history-section icon">
 				<view class="sec-header">
-					<text class="yticon icon-lishijilu"></text>
+					<text class="iconfont icon-lishijilu"></text>
 					<text>浏览历史</text>
 				</view>
 				<scroll-view scroll-x class="h-list">
@@ -100,7 +100,7 @@
 
 <script>
 	import ListCell from '../../components/mix-list-cell.vue';
-	
+
 	let startY = 0,
 		moveY = 0,
 		pageAtTop = true;

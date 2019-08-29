@@ -1,43 +1,81 @@
+@font-face {
+	font-family: iconfont;
+	font-weight: normal;
+	font-style: normal;
+	src: url('https://at.alicdn.com/t/font_1078604_w4kpxh0rafi.ttf') format('truetype');
+}
+.iconfont {
+	font-family: "iconfont" !important;
+	font-size: 16px;
+	font-style: normal;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
 /*每个页面公共css */
-	view,
-	scroll-view,
-	swiper,
-	swiper-item,
-	cover-view,
-	cover-image,
-	icon,
-	text,
-	rich-text,
-	progress,
-	button,
-	checkbox,
-	form,
-	input,
-	label,
-	radio,
-	slider,
-	switch,
-	textarea,
-	navigator,
-	audio,
-	camera,
-	image,
-	video {
-		box-sizing: border-box;
-	}
+view,
+scroll-view,
+swiper,
+swiper-item,
+cover-view,
+cover-image,
+icon,
+text,
+rich-text,
+progress,
+button,
+checkbox,
+form,
+input,
+label,
+radio,
+slider,
+switch,
+textarea,
+navigator,
+audio,
+camera,
+image,
+video {
+	box-sizing: border-box;
+}
 
-	.icon-shouye:before {
-		content: "\e626";
-	}
+.icon-shouye:before {
+	content: "\e626";
+}
 
-	.icon-daifukuan:before {
-		content: "\e68f";
-	}
+.icon-daifukuan:before {
+	content: "\e68f";
+}
 
-	.icon-yishouhuo:before {
-		content: "\e71a";
-	}
+.icon-yishouhuo:before {
+	content: "\e71a";
+}
 
-	.icon-shouhoutuikuan:before {
-		content: "\e631";
-	}
+.icon-shouhoutuikuan:before {
+	content: "\e631";
+}
+
+.icon-iconfontweixin:before {
+	content: "\e611";
+}
+
+.icon-dizhi:before {
+	content: "\e614";
+}
+
+.icon-share:before {
+	content: "\e656";
+}
+
+.icon-pinglun-copy:before {
+	content: "\e612";
+}
+
+.icon-shoucang_xuanzhongzhuangtai:before {
+	content: "\e6a9";
+}
+
+.icon-shezhi1:before {
+	content: "\e61d";
+}

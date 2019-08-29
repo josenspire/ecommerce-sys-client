@@ -10,6 +10,8 @@
 	"libVersion": "2.7.0",
 	"appid": "touristappid",
 	"projectname": "ecommerce-sys-client",
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
 	"condition": {
 		"search": {
 			"current": -1,
@@ -32,7 +34,7 @@
 			"list": [
 				{
 					"id": 0,
-					"name": "category",
+					"name": "user",
 					"pathName": "pages/personal/index",
 					"query": "",
 					"scene": null

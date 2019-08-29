@@ -24,6 +24,19 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
+@font-face {
+  font-family: iconfont;
+  font-weight: normal;
+  font-style: normal;
+  src: url("https://at.alicdn.com/t/font_1078604_w4kpxh0rafi.ttf") format("truetype");
+}
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 /*每个页面公共css */
 view,
 scroll-view,
@@ -63,5 +76,23 @@ video {
 }
 .icon-shouhoutuikuan:before {
   content: "\E631";
+}
+.icon-iconfontweixin:before {
+  content: "\E611";
+}
+.icon-dizhi:before {
+  content: "\E614";
+}
+.icon-share:before {
+  content: "\E656";
+}
+.icon-pinglun-copy:before {
+  content: "\E612";
+}
+.icon-shoucang_xuanzhongzhuangtai:before {
+  content: "\E6A9";
+}
+.icon-shezhi1:before {
+  content: "\E61D";
 }
 

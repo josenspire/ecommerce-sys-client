@@ -21,6 +21,9 @@
 		{
 			"path": "pages/personal/index",
 			"style": {
+				// #ifdef MP
+				"navigationStyle": "custom",
+				// #endif
 				"navigationBarTitleText": "我的"
 			}
 		}
