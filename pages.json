@@ -12,7 +12,7 @@
 						"searchInput": {
 							"backgroundColor": "rgba(231, 231, 231,.7)",
 							"borderRadius": "16px",
-							"placeholder": "请输入地址 如：大钟寺",
+							"placeholder": "请输入地址 如：南方软件园",
 							"disabled": true,
 							"placeholderColor": "#606266"
 						},

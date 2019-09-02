@@ -12,6 +12,17 @@
 	-moz-osx-font-smoothing: grayscale;
 }
 
+.clamp {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	display: block;
+}
+
+.common-hover {
+	background: #f5f5f5;
+}
+
 /*每个页面公共css */
 view,
 scroll-view,
