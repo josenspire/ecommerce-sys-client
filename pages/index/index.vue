@@ -146,7 +146,7 @@
 				</view>
 				<scroll-view class="floor-list" scroll-x>
 					<view class="scoll-wrapper">
-						<view v-for="(item, index) in productList" :key="index" class="floor-item" @click="navToDetailPage(item)">
+						<view v-for="(item, index) in productList" :key="index" class="floor-item" @click="handleNavToDetailPage(item)">
 							<image :src="item.image" mode="aspectFill"></image>
 							<text class="title clamp">{{item.title}}</text>
 							<text class="price">￥{{item.price}}</text>
@@ -165,7 +165,7 @@
 				</view>
 				<scroll-view class="floor-list" scroll-x>
 					<view class="scoll-wrapper">
-						<view v-for="(item, index) in productList" :key="index" class="floor-item" @click="navToDetailPage(item)">
+						<view v-for="(item, index) in productList" :key="index" class="floor-item" @click="handleNavToDetailPage(item)">
 							<image :src="item.image3" mode="aspectFill"></image>
 							<text class="title clamp">{{item.title}}</text>
 							<text class="price">￥{{item.price}}</text>
@@ -188,7 +188,7 @@
 				<text class="iconfont icon-you"></text>
 			</view>
 			<view class="guess-section">
-				<view v-for="(item, index) in productList" :key="index" class="guess-item" @click="navToDetailPage(item)">
+				<view v-for="(item, index) in productList" :key="index" class="guess-item" @click="handleNavToDetailPage(item)">
 					<view class="image-wrapper">
 						<image :src="item.image" mode="aspectFill"></image>
 					</view>
@@ -260,6 +260,11 @@
 			},
 			handleNavToDetailPage(title) {
 				console.log(title);
+				// TODO: should replace to product id
+				const productId = title;
+				uni.navigateTo({
+					url: `/pages/product/product?id=${productId}`
+				})
 			}
 		},
 		computed: {},

@@ -50,12 +50,35 @@
 			}
 		},
 		{
-			"path": "pages/personal/index",
+			"path": "pages/personal/personal",
 			"style": {
 				// #ifdef MP
 				"navigationStyle": "custom",
 				// #endif
 				"navigationBarTitleText": "我的"
+			}
+		},
+		{
+			"path": "pages/product/product",
+			"style": {
+				"navigationBarTitleText": "产品详情",
+				"app-plus": {
+					"titleNView": {
+						"type": "transparent"
+					}
+				}
+			}
+		},
+		{
+			"path": "pages/address/address",
+			"style": {
+				"navigationBarTitleText": "我的地址"
+			}
+		},
+		{
+			"path": "pages/address/addressManager",
+			"style": {
+				"navigationBarTitleText": ""
 			}
 		}
 	],
@@ -89,7 +112,7 @@
 				"text": "购物车"
 			},
 			{
-				"pagePath": "pages/personal/index",
+				"pagePath": "pages/personal/personal",
 				"iconPath": "static/personal_inactive.png",
 				"selectedIconPath": "static/personal_active.png",
 				"text": "我的"
