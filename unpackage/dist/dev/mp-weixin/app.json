@@ -3,7 +3,11 @@
     "pages/index/index",
     "pages/category/index",
     "pages/carts/index",
-    "pages/personal/index"
+    "pages/personal/personal",
+    "pages/product/product",
+    "pages/address/address",
+    "pages/address/addressManager",
+    "pages/setting/setting"
   ],
   "subPackages": [],
   "window": {
@@ -37,13 +41,12 @@
         "text": "购物车"
       },
       {
-        "pagePath": "pages/personal/index",
+        "pagePath": "pages/personal/personal",
         "iconPath": "static/personal_inactive.png",
         "selectedIconPath": "static/personal_active.png",
         "text": "我的"
       }
     ]
   },
-  "usingComponents": {},
-  "sitemapLocation": "sitemap.json"
+  "usingComponents": {}
 }

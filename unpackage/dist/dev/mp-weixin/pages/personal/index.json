@@ -1,7 +1,0 @@
-{
-  "navigationStyle": "custom",
-  "navigationBarTitleText": "我的",
-  "usingComponents": {
-    "list-cell": "/components/mix-list-cell"
-  }
-}

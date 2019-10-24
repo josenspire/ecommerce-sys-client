@@ -2,17 +2,19 @@
 	<view class="content line-top">
 		<view class="data-list line-bottom" v-for="(item, index) in addressList" :key="index" @click="checkAddress(item)">
 			<uni-swipe-action :options="options">
-				<view class="wrapper">
-					<view class="address-box">
-						<text v-if="item.default" class="tag">默认</text>
-						<text class="address">{{item.addressName}} {{item.area}}</text>
+				<view class="content-wrapper">
+					<view class="address-wrapper">
+						<view class="address-box">
+							<text v-if="item.default" class="tag">默认</text>
+							<text class="address">{{item.addressName}} {{item.area}}</text>
+						</view>
+						<view class="u-box">
+							<text class="name">{{item.name}}</text>
+							<text class="mobile">{{item.mobile}}</text>
+						</view>
 					</view>
-					<view class="u-box">
-						<text class="name">{{item.name}}</text>
-						<text class="mobile">{{item.mobile}}</text>
-					</view>
+					<text class="iconfont icon-bianji" @click.stop="handleAddressOperation('edit', item)"></text>
 				</view>
-				<text class="iconfont icon-bianji" @click.stop="handleAddressOperation('edit', item)"></text>
 			</uni-swipe-action>
 		</view>
 		<text style="display:block;padding: 16upx 30upx 10upx;lihe-height: 1.6;color: #fa436a;font-size: 24upx;">
@@ -24,7 +26,9 @@
 </template>
 
 <script>
-	import {uniSwipeAction} from "@dcloudio/uni-ui";
+	import {
+		uniSwipeAction
+	} from "@dcloudio/uni-ui";
 
 	export default {
 		components: {
@@ -38,7 +42,7 @@
 					mobile: '18666666666',
 					addressName: '贵族皇仕牛排(东城店)',
 					address: '北京市东城区',
-					area: 'B区',
+					area: 'B区 北京市东城区 贵族皇仕牛排(东城店)',
 					default: true
 				}, {
 					name: '刘大大',
@@ -97,55 +101,65 @@
 	.data-list {
 		display: flex;
 		align-items: center;
-		padding: 20upx 30upx;
 		background: #fff;
 		position: relative;
 	}
 
-	.wrapper {
+	.content-wrapper {
 		display: flex;
-		flex-direction: column;
-		flex: 1;
-	}
-
-	.address-box {
-		display: flex;
+		flex-wrap: nowrap;
+		flex-direction: row;
+		justify-content: center;
 		align-items: center;
 
-		.tag {
-			font-size: 24upx;
-			color: $base-color;
-			margin-right: 10upx;
-			background: #fffafb;
-			border: 1px solid #ffb4c7;
-			border-radius: 4upx;
-			padding: 4upx 10upx;
-			line-height: 1;
+		.address-wrapper {
+			display: flex;
+			flex-direction: column;
+			flex: 1;
+			padding: 20upx 20upx 20upx 30upx;
 		}
 
-		.address {
-			font-size: 30upx;
-			color: $font-color-dark;
+		.address-box {
+			display: flex;
+			align-items: center;
+
+			.tag {
+				font-size: 24upx;
+				color: $base-color;
+				margin-right: 10upx;
+				background: #fffafb;
+				border: 1px solid #ffb4c7;
+				border-radius: 4upx;
+				line-height: 1;
+				padding: 4upx 10upx;
+				width: 100upx;
+				text-align: center;
+			}
+
+			.address {
+				font-size: 30upx;
+				color: $font-color-dark;
+			}
 		}
-	}
 
-	.u-box {
-		font-size: 28upx;
-		color: $font-color-light;
-		margin-top: 16upx;
+		.u-box {
+			font-size: 28upx;
+			color: $font-color-light;
+			margin-top: 16upx;
 
-		.name {
-			margin-right: 30upx;
+			.name {
+				margin-right: 30upx;
+			}
 		}
-	}
 
-	.icon-bianji {
-		display: flex;
-		align-items: center;
-		height: 80upx;
-		font-size: 40upx;
-		color: $font-color-light;
-		padding-left: 30upx;
+		.icon-bianji {
+			display: flex;
+			align-items: center;
+			height: 80upx;
+			font-size: 40upx;
+			color: $font-color-light;
+			padding-right: 20upx;
+		}
 	}
 
 	.add-btn {

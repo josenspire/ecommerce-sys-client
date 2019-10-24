@@ -37,6 +37,39 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+.clamp {
+  overflow: hidden;
+  -o-text-overflow: ellipsis;
+     text-overflow: ellipsis;
+  white-space: nowrap;
+  display: block;
+}
+.common-hover {
+  background: #f5f5f5;
+}
+/** line */
+.line-top:after,
+.line-bottom:after {
+  position: absolute;
+  z-index: 3;
+  left: 0;
+  right: 0;
+  height: 0;
+  content: '';
+  -webkit-transform: scaleY(0.5);
+  -ms-transform: scaleY(0.5);
+  transform: scaleY(0.5);
+  border-bottom: 1px solid #E4E7ED;
+}
+.line-top:after {
+  top: 0;
+}
+.line-bottom:after {
+  bottom: 0;
+}
+.icon-shouhuodizhi:before {
+  content: "\E712";
+}
 /*每个页面公共css */
 view,
 scroll-view,
@@ -94,5 +127,20 @@ video {
 }
 .icon-shezhi1:before {
   content: "\E61D";
+}
+.icon-xiatubiao--copy:before {
+  content: "\E608";
+}
+.icon-gouwuche:before {
+  content: "\E609";
+}
+.icon-shoucang2:before {
+  content: "\E62E";
+}
+.icon-shoucang:before {
+  content: "\E645";
+}
+.icon-bianji:before {
+  content: "\E646";
 }
 
